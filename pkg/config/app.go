@@ -20,7 +20,7 @@ func Connect() {
 		panic(err)
 	}
 
-	db = d
+	db = d // NO RETURN BECAUSE THE VARIABLE IS A POINTER
 }
 
 func GetDB() *gorm.DB {

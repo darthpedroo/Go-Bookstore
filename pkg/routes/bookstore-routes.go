@@ -5,6 +5,8 @@ import (
 	"github.com/darthpedroo/go-bookstore/pkg/controllers"
 )
 
+//The user interacts with the routes and the routes send control to the controllers. 
+
 var RegisterBookStoreRoutes = func(router *mux.Router) {
 	router.HandleFunc("/book/", controllers.CreateBook).Methods("POST")
 	router.HandleFunc("/book/", controllers.GetBook).Methods("GET")
