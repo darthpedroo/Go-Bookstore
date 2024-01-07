@@ -9,7 +9,7 @@ import(
 )
 
 func main(){
-	r := mux.newRouter()
+	r := mux.NewRouter()
 	routes.RegisterBookStoreRoutes(r)
 	http.Handle("/", r)
 	log.Fatal(http.ListenAndServe("localhost:9010", r)) //Investigate why is 'r' here. 
