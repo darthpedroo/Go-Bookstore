@@ -20,3 +20,28 @@ func init (){
 	db.AutoMigrate(&Book{})
 }
 
+func (b *Book) CreateBook() *Book{
+	//b is something that the function recieves, which is of type 'Book'. Also, the function return a type 'Book'
+	db.NewRecord(b)
+	db.Create(&b)
+	return b
+}
+
+func GetAllBooks() []Book {
+	var Books []Book
+	//Also, Books is the name of the table
+	db.Find(&Books) //&Books: The & operator is used to pass a pointer to the slice, allowing Gorm to modify the underlying slice with the query results.
+	return Books
+}
+
+func GetBookById(Id int64) (*Book, *gorm.DB){
+	var getBook Book
+	db := db.Where("ID=?", Id).Find(&getBook)
+	return &getBook, db
+}
+
+func DeleteBook(ID int64) Book {
+	var book Book
+	db.Where("ID=?", ID).Delete(book)
+	return book
+}
