@@ -3,7 +3,7 @@ package models
 import (
 	"github.com/jinzhu/gorm"
 	"github.com/darthpedroo/go-bookstore/pkg/config"
-	"fmt"
+
 )
 
 var db *gorm.DB
