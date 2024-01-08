@@ -3,6 +3,7 @@ package models
 import (
 	"github.com/jinzhu/gorm"
 	"github.com/darthpedroo/go-bookstore/pkg/config"
+	"fmt"
 )
 
 var db *gorm.DB
@@ -17,7 +18,7 @@ type Book struct {
 func init (){
 	config.Connect()
 	db = config.GetDB()
-	db.AutoMigrate(&Book{})
+	db.AutoMigrate(&Book{}) //This creates the table BOOK. So you don't have to put anything on mysql
 }
 
 func (b *Book) CreateBook() *Book{
